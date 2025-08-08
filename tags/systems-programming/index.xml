@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Systems-Programming on memduh</title>
+    <link>http://localhost:1313/tags/systems-programming/</link>
+    <description>Recent content in Systems-Programming on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Jan 2025 10:00:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/systems-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementing Custom Memory Allocator with C&#43;&#43;</title>
+      <link>http://localhost:1313/posts/memory-allocators-overview/</link>
+      <pubDate>Wed, 15 Jan 2025 10:00:00 +0300</pubDate>
+      <guid>http://localhost:1313/posts/memory-allocators-overview/</guid>
+      <description>&lt;h1 id=&#34;memory-allocators-a-deep-dive-into-system-level-memory-management&#34;&gt;&#xA;  Memory Allocators: A Deep Dive into System-Level Memory Management&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#memory-allocators-a-deep-dive-into-system-level-memory-management&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Memory allocation is one of the most fundamental operations in systems programming. Whether you&amp;rsquo;re writing a high-performance web server, a game engine, or an embedded system, understanding how memory allocators work can make the difference between a blazingly fast application and one that struggles under load.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-basics-what-is-a-memory-allocator&#34;&gt;&#xA;  The Basics: What is a Memory Allocator?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-basics-what-is-a-memory-allocator&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;A memory allocator is responsible for managing the dynamic allocation and deallocation of memory in a program. When you call &lt;code&gt;malloc()&lt;/code&gt; or &lt;code&gt;new&lt;/code&gt;, you&amp;rsquo;re asking the allocator to find a suitable chunk of memory for your data.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

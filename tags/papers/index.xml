@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Papers on memduh</title>
+    <link>http://localhost:1313/tags/papers/</link>
+    <description>Recent content in Papers on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Jan 2025 12:00:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/papers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Slab Allocator: An Object-Caching Kernel Memory Allocator</title>
+      <link>http://localhost:1313/readings/slab-allocator-paper/</link>
+      <pubDate>Wed, 15 Jan 2025 12:00:00 +0300</pubDate>
+      <guid>http://localhost:1313/readings/slab-allocator-paper/</guid>
+      <description>&lt;p&gt;The original paper introducing slab allocators for the Solaris kernel. Essential reading for understanding modern memory allocation techniques.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Author:&lt;/strong&gt; Jeff Bonwick&lt;br&gt;&#xA;&lt;strong&gt;Year:&lt;/strong&gt; 1994&lt;br&gt;&#xA;&lt;strong&gt;Conference:&lt;/strong&gt; USENIX&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

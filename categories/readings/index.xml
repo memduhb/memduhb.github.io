@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Readings on memduh</title>
+    <link>http://localhost:1313/categories/readings/</link>
+    <description>Recent content in Readings on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Jan 2025 12:00:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/readings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Readings</title>
+      <link>http://localhost:1313/readings/memory-allocators-papers/</link>
+      <pubDate>Wed, 15 Jan 2025 12:00:00 +0300</pubDate>
+      <guid>http://localhost:1313/readings/memory-allocators-papers/</guid>
+      <description>&lt;h1 id=&#34;memory-allocator-papers--research&#34;&gt;&#xA;  Memory Allocator Papers &amp;amp; Research&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#memory-allocator-papers--research&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;academic-papers&#34;&gt;&#xA;  Academic Papers&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#academic-papers&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-slab-allocator-an-object-caching-kernel-memory-allocator&#34;&gt;&#xA;  &lt;a href=&#34;https://www.usenix.org/legacy/publications/library/proceedings/bos94/bonwick.html&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Slab Allocator: An Object-Caching Kernel Memory Allocator&lt;/a&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-slab-allocator-an-object-caching-kernel-memory-allocator&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Author:&lt;/strong&gt; Jeff Bonwick&lt;br&gt;&#xA;&lt;strong&gt;Year:&lt;/strong&gt; 1994&lt;br&gt;&#xA;&lt;strong&gt;Conference:&lt;/strong&gt; USENIX&lt;br&gt;&#xA;&lt;strong&gt;Summary:&lt;/strong&gt; The original paper introducing slab allocators for the Solaris kernel. Essential reading for understanding modern memory allocation techniques.&lt;/p&gt;&#xA;&lt;h3 id=&#34;scalable-lock-free-dynamic-memory-allocation&#34;&gt;&#xA;  &lt;a href=&#34;https://dl.acm.org/doi/10.1145/1029873.1029879&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Scalable Lock-Free Dynamic Memory Allocation&lt;/a&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#scalable-lock-free-dynamic-memory-allocation&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Author:&lt;/strong&gt; Maged M. Michael&lt;br&gt;&#xA;&lt;strong&gt;Year:&lt;/strong&gt; 2004&lt;br&gt;&#xA;&lt;strong&gt;Conference:&lt;/strong&gt; PLDI&lt;br&gt;&#xA;&lt;strong&gt;Summary:&lt;/strong&gt; Introduces lock-free memory allocation techniques that scale well in multi-threaded environments.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

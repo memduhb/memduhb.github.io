@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on memduh</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 06 Aug 2025 10:00:00 +0300</lastBuildDate>
+    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementing Custom Memory Allocator in C&#43;&#43;</title>
+      <link>/posts/custom-memory-allocator-implementation/</link>
+      <pubDate>Wed, 06 Aug 2025 10:00:00 +0300</pubDate>
+      <guid>/posts/custom-memory-allocator-implementation/</guid>
+      <description>&lt;p&gt;In this post, I elaborate on my implementation of a memory allocator in C++. The &lt;code&gt;malloc&lt;/code&gt;, &lt;code&gt;calloc&lt;/code&gt;, &lt;code&gt;realloc&lt;/code&gt;, and &lt;code&gt;free&lt;/code&gt; functions are implemented and discussed. The aim is to provide educational content on how these functions work under the hood. Not all aspects are taken into account in this custom implementation; however, this provides a sufficient introduction to memory management in C++. Note that standard allocators like &lt;strong&gt;glibc malloc&lt;/strong&gt; are highly optimized and have been battle-tested for decades.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Implementing Custom Slab Allocator with C&#43;&#43;</title>
+      <link>/posts/slab-allocator-implementation/</link>
+      <pubDate>Sat, 25 Jan 2025 09:15:00 +0300</pubDate>
+      <guid>/posts/slab-allocator-implementation/</guid>
+      <description>&lt;h1 id=&#34;implementing-a-slab-allocator-high-performance-memory-management&#34;&gt;&#xA;  implementing a slab allocator: high-performance memory management&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#implementing-a-slab-allocator-high-performance-memory-management&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Slab allocators are one of the most efficient memory allocation strategies for high-frequency allocations of fixed-size objects. Originally developed by Sun Microsystems for the Solaris kernel, slab allocators have found their way into many high-performance systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-slab-allocator&#34;&gt;&#xA;  What is a Slab Allocator?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-a-slab-allocator&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;A slab allocator pre-allocates memory in fixed-size chunks (slabs) and maintains free lists for each size class. When you request memory, it simply pops an object from the appropriate free list - an O(1) operation.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Consensus Protocols</title>
+      <link>/posts/consensus-protocols/</link>
+      <pubDate>Mon, 16 May 2022 11:00:00 +0300</pubDate>
+      <guid>/posts/consensus-protocols/</guid>
+      <description>&lt;h1 id=&#34;consensus-protocols&#34;&gt;&#xA;  Consensus Protocols&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#consensus-protocols&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Consensus protocols are the backbone of distributed systems, enabling multiple nodes to agree on a single state or value despite potential failures and network partitions. From traditional distributed databases to modern blockchain networks, consensus protocols ensure reliability and consistency in decentralized environments.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;/images/angry.png&#34; width=&#34;600&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&amp;ldquo;12 Angry Men&amp;rdquo; film shows 12 jurors deciding the future of an 18-year-old boy accused of murder. For a decision to emerge from the room, &lt;strong&gt;unanimity&lt;/strong&gt; must be achieved.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

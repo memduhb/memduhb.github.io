@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51148&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Readings · memduh
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Memduh">
+<meta name="description" content="Collection of articles, papers, and resources I&#39;ve read">
+<meta name="keywords" content="C&#43;&#43;, memory, allocators, mmap, slab, performance">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Readings">
+  <meta name="twitter:description" content="Collection of articles, papers, and resources I&#39;ve read">
+
+<meta property="og:url" content="http://localhost:51148/readings/readings/">
+  <meta property="og:site_name" content="memduh">
+  <meta property="og:title" content="Readings">
+  <meta property="og:description" content="Collection of articles, papers, and resources I&#39;ve read">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="readings">
+    <meta property="article:published_time" content="2025-01-15T12:00:00+03:00">
+    <meta property="article:modified_time" content="2025-01-15T12:00:00+03:00">
+    <meta property="article:tag" content="Readings">
+    <meta property="article:tag" content="Articles">
+    <meta property="article:tag" content="Papers">
+
+
+
+
+<link rel="canonical" href="http://localhost:51148/readings/readings/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+  
+  
+    
+    
+    <link rel="stylesheet" href="/scss/custom.css" media="screen">
+  
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:51148/">
+      memduh
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/notes/">Notes</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/readings/">Readings</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:51148/readings/readings/">
+          Readings
+        </a>
+      </h1>
+    </header>
+
+    <h1 id="readings">
+  Readings
+  <a class="heading-link" href="#readings">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<h2 id="the-slab-allocator-an-object-caching-kernel-memory-allocator">
+  <a href="https://www.usenix.org/legacy/publications/library/proceedings/bos94/bonwick.html"  class="external-link" target="_blank" rel="noopener">The Slab Allocator: An Object-Caching Kernel Memory Allocator</a>
+  <a class="heading-link" href="#the-slab-allocator-an-object-caching-kernel-memory-allocator">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Author:</strong> Jeff Bonwick<br>
+<strong>Year:</strong> 1994<br>
+<strong>Summary:</strong> The original paper introducing slab allocators for the Solaris kernel. Essential reading for understanding modern memory allocation techniques.</p>
+<h2 id="bitcoin-a-peer-to-peer-electronic-cash-system">
+  <a href="https://bitcoin.org/bitcoin.pdf"  class="external-link" target="_blank" rel="noopener">Bitcoin: A Peer-to-Peer Electronic Cash System</a>
+  <a class="heading-link" href="#bitcoin-a-peer-to-peer-electronic-cash-system">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Author:</strong> Satoshi Nakamoto<br>
+<strong>Year:</strong> 2008<br>
+<strong>Summary:</strong> The original Bitcoin whitepaper that introduced blockchain technology and proof-of-work consensus.</p>
+<h2 id="ethereum-a-next-generation-smart-contract-and-decentralized-application-platform">
+  <a href="https://ethereum.org/en/whitepaper/"  class="external-link" target="_blank" rel="noopener">Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform</a>
+  <a class="heading-link" href="#ethereum-a-next-generation-smart-contract-and-decentralized-application-platform">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Author:</strong> Vitalik Buterin<br>
+<strong>Year:</strong> 2014<br>
+<strong>Summary:</strong> The Ethereum whitepaper introducing smart contracts and the EVM.</p>
+<h2 id="understanding-glibc-malloc">
+  <a href="https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/"  class="external-link" target="_blank" rel="noopener">Understanding glibc malloc</a>
+  <a class="heading-link" href="#understanding-glibc-malloc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Author:</strong> Sploitfun<br>
+<strong>Year:</strong> 2015<br>
+<strong>Summary:</strong> Deep dive into how glibc&rsquo;s malloc implementation works, including heap management and security considerations.</p>
+<h2 id="computer-systems-a-programmer">
+  <a href="https://csapp.cs.cmu.edu/"  class="external-link" target="_blank" rel="noopener">Computer Systems: A Programmer&rsquo;s Perspective</a>
+  <a class="heading-link" href="#computer-systems-a-programmer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Authors:</strong> Randal E. Bryant, David R. O&rsquo;Hallaron<br>
+<strong>Year:</strong> 2015<br>
+<strong>Summary:</strong> Comprehensive textbook covering computer systems from a programmer&rsquo;s perspective.</p>
+<h2 id="understanding-rollups">
+  <a href="https://vitalik.ca/general/2021/01/05/rollup.html"  class="external-link" target="_blank" rel="noopener">Understanding Rollups</a>
+  <a class="heading-link" href="#understanding-rollups">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Author:</strong> Vitalik Buterin<br>
+<strong>Year:</strong> 2021<br>
+<strong>Summary:</strong> Detailed explanation of how rollups work and their security properties.</p>
+<h2 id="performance-engineering">
+  <a href="https://www.brendangregg.com/"  class="external-link" target="_blank" rel="noopener">Performance Engineering</a>
+  <a class="heading-link" href="#performance-engineering">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Author:</strong> Brendan Gregg<br>
+<strong>Summary:</strong> Blog and resources on performance engineering, profiling, and optimization techniques.</p>
+<h2 id="the-c-programming-language">
+  <a href="https://www.stroustrup.com/4th.html"  class="external-link" target="_blank" rel="noopener">The C++ Programming Language</a>
+  <a class="heading-link" href="#the-c-programming-language">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Author:</strong> Bjarne Stroustrup<br>
+<strong>Year:</strong> 2013<br>
+<strong>Summary:</strong> The definitive guide to C++ by its creator. Covers modern C++ features and best practices.</p>
+<h2 id="practical-byzantine-fault-tolerance">
+  <a href="https://pmg.csail.mit.edu/papers/osdi99.pdf"  class="external-link" target="_blank" rel="noopener">Practical Byzantine Fault Tolerance</a>
+  <a class="heading-link" href="#practical-byzantine-fault-tolerance">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Authors:</strong> Miguel Castro, Barbara Liskov<br>
+<strong>Year:</strong> 1999<br>
+<strong>Summary:</strong> The original PBFT paper that introduced practical Byzantine fault tolerance.</p>
+<h2 id="writing-a-memory-allocator">
+  <a href="https://danluu.com/malloc-tutorial/"  class="external-link" target="_blank" rel="noopener">Writing a Memory Allocator</a>
+  <a class="heading-link" href="#writing-a-memory-allocator">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p><strong>Author:</strong> Dan Luu<br>
+<strong>Summary:</strong> Step-by-step tutorial on implementing a basic memory allocator from scratch.</p>
+<hr>
+<p><em>Collection of articles, papers, and resources I&rsquo;ve read</em></p>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2025
+     Memduh 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+  Implementing Custom Slab Allocator with C&#43;&#43; · memduh
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="memduh">
+<meta name="description" content="A practical guide to implementing a slab allocator for high-frequency object allocations, with performance benchmarks and real-world considerations.">
+<meta name="keywords" content="C&#43;&#43;, memory, allocators, mmap, slab, performance">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Implementing Custom Slab Allocator with C&#43;&#43;">
+  <meta name="twitter:description" content="A practical guide to implementing a slab allocator for high-frequency object allocations, with performance benchmarks and real-world considerations.">
+
+<meta property="og:url" content="/posts/slab-allocator-implementation/">
+  <meta property="og:site_name" content="memduh">
+  <meta property="og:title" content="Implementing Custom Slab Allocator with C&#43;&#43;">
+  <meta property="og:description" content="A practical guide to implementing a slab allocator for high-frequency object allocations, with performance benchmarks and real-world considerations.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-25T09:15:00+03:00">
+    <meta property="article:modified_time" content="2025-01-25T09:15:00+03:00">
+    <meta property="article:tag" content="Slab-Allocator">
+    <meta property="article:tag" content="Memory-Management">
+    <meta property="article:tag" content="C&#43;&#43;">
+    <meta property="article:tag" content="Performance">
+    <meta property="article:tag" content="Implementation">
+      <meta property="og:see_also" content="/posts/custom-memory-allocator-implementation/">
+
+
+
+
+<link rel="canonical" href="/posts/slab-allocator-implementation/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.6445a802b9389c9660e1b07b724dcf5718b1065ed2d71b4eeaf981cc7cc5fc46.css" integrity="sha256-ZEWoArk4nJZg4bB7ck3PVxixBl7S1xtO6vmBzHzF/EY=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+  
+  
+    
+    <link rel="stylesheet" href="/scss/custom.min.0c7feecd432e394a9caa60d61320988a393b7b9a7c0ae204d73b7ce6e142b10c.css" integrity="sha256-DH/uzUMuOUqcqmDWEyCYijk7e5p8CuIE1zt85uFCsQw=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="/">
+      memduh
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/notes/">notes</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/readings/">readings</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">about</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="/posts/slab-allocator-implementation/">
+              Implementing Custom Slab Allocator with C&#43;&#43;
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-01-25T09:15:00&#43;03:00">
+                January 25, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/systems-programming/">Systems-Programming</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/slab-allocator/">Slab-Allocator</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/memory-management/">Memory-Management</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/performance/">Performance</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/implementation/">Implementation</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="implementing-a-slab-allocator-high-performance-memory-management">
+  implementing a slab allocator: high-performance memory management
+  <a class="heading-link" href="#implementing-a-slab-allocator-high-performance-memory-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Slab allocators are one of the most efficient memory allocation strategies for high-frequency allocations of fixed-size objects. Originally developed by Sun Microsystems for the Solaris kernel, slab allocators have found their way into many high-performance systems.</p>
+<h2 id="what-is-a-slab-allocator">
+  What is a Slab Allocator?
+  <a class="heading-link" href="#what-is-a-slab-allocator">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>A slab allocator pre-allocates memory in fixed-size chunks (slabs) and maintains free lists for each size class. When you request memory, it simply pops an object from the appropriate free list - an O(1) operation.</p>
+<h2 id="core-concepts">
+  Core Concepts
+  <a class="heading-link" href="#core-concepts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-slab">
+  1. Slab
+  <a class="heading-link" href="#1-slab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A contiguous chunk of memory divided into equal-sized objects.</p>
+<h3 id="2-free-list">
+  2. Free List
+  <a class="heading-link" href="#2-free-list">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A linked list of available objects within a slab.</p>
+<h3 id="3-size-classes">
+  3. Size Classes
+  <a class="heading-link" href="#3-size-classes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Predefined object sizes that the allocator supports.</p>
+<h2 id="basic-implementation">
+  Basic Implementation
+  <a class="heading-link" href="#basic-implementation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Here&rsquo;s a simplified slab allocator implementation in C++:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;list&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstddef&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SlabAllocator</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Slab</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> memory;
+</span></span><span style="display:flex;"><span>        size_t objectSize;
+</span></span><span style="display:flex;"><span>        size_t objectCount;
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>list<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">void</span><span style="color:#f92672">*&gt;</span> freeList;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">bool</span> isFull;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>Slab<span style="color:#f92672">&gt;</span> slabs_;
+</span></span><span style="display:flex;"><span>    size_t slabSize_;
+</span></span><span style="display:flex;"><span>    size_t objectSize_;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    SlabAllocator(size_t objectSize, size_t objectsPerSlab <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">:</span> objectSize_(objectSize), slabSize_(objectSize <span style="color:#f92672">*</span> objectsPerSlab) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Align object size to cache line
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        objectSize_ <span style="color:#f92672">=</span> (objectSize_ <span style="color:#f92672">+</span> <span style="color:#ae81ff">63</span>) <span style="color:#f92672">&amp;</span> <span style="color:#f92672">~</span><span style="color:#ae81ff">63</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">allocate</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Find a slab with free objects
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> slab : slabs_) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>slab.freeList.empty()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> obj <span style="color:#f92672">=</span> slab.freeList.front();
+</span></span><span style="display:flex;"><span>                slab.freeList.pop_front();
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> obj;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Create new slab if needed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        createNewSlab();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> allocate();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deallocate</span>(<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> ptr) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Find the slab containing this pointer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> slab : slabs_) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (ptr <span style="color:#f92672">&gt;=</span> slab.memory <span style="color:#f92672">&amp;&amp;</span> 
+</span></span><span style="display:flex;"><span>                ptr <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">*&gt;</span>(slab.memory) <span style="color:#f92672">+</span> slabSize_) {
+</span></span><span style="display:flex;"><span>                slab.freeList.push_back(ptr);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> createNewSlab() {
+</span></span><span style="display:flex;"><span>        Slab slab;
+</span></span><span style="display:flex;"><span>        slab.memory <span style="color:#f92672">=</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(slabSize_);
+</span></span><span style="display:flex;"><span>        slab.objectSize <span style="color:#f92672">=</span> objectSize_;
+</span></span><span style="display:flex;"><span>        slab.objectCount <span style="color:#f92672">=</span> slabSize_ <span style="color:#f92672">/</span> objectSize_;
+</span></span><span style="display:flex;"><span>        slab.isFull <span style="color:#f92672">=</span> false;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Initialize free list
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> mem <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">*&gt;</span>(slab.memory);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> slab.objectCount; <span style="color:#f92672">++</span>i) {
+</span></span><span style="display:flex;"><span>            slab.freeList.push_back(mem <span style="color:#f92672">+</span> i <span style="color:#f92672">*</span> objectSize_);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        slabs_.push_back(slab);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="advanced-features">
+  Advanced Features
+  <a class="heading-link" href="#advanced-features">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="1-multiple-size-classes">
+  1. Multiple Size Classes
+  <a class="heading-link" href="#1-multiple-size-classes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MultiSlabAllocator</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>SlabAllocator<span style="color:#f92672">&gt;</span> allocators_;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>size_t<span style="color:#f92672">&gt;</span> sizeClasses_;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    MultiSlabAllocator() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Common size classes: 8, 16, 32, 64, 128, 256, 512, 1024
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        sizeClasses_ <span style="color:#f92672">=</span> {<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">128</span>, <span style="color:#ae81ff">256</span>, <span style="color:#ae81ff">512</span>, <span style="color:#ae81ff">1024</span>};
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (size_t size : sizeClasses_) {
+</span></span><span style="display:flex;"><span>            allocators_.emplace_back(size);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">allocate</span>(size_t size) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Find appropriate size class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> sizeClasses_.size(); <span style="color:#f92672">++</span>i) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (size <span style="color:#f92672">&lt;=</span> sizeClasses_[i]) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> allocators_[i].allocate();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Fall back to system allocator for large objects
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(size);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="2-thread-safety">
+  2. Thread Safety
+  <a class="heading-link" href="#2-thread-safety">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;mutex&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadSafeSlabAllocator</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    SlabAllocator allocator_;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">mutable</span> std<span style="color:#f92672">::</span>mutex mutex_;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> allocate() {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>lock_guard<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>mutex<span style="color:#f92672">&gt;</span> lock(mutex_);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> allocator_.allocate();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deallocate</span>(<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> ptr) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>lock_guard<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>mutex<span style="color:#f92672">&gt;</span> lock(mutex_);
+</span></span><span style="display:flex;"><span>        allocator_.deallocate(ptr);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="performance-characteristics">
+  Performance Characteristics
+  <a class="heading-link" href="#performance-characteristics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="advantages">
+  Advantages:
+  <a class="heading-link" href="#advantages">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>O(1) allocation/deallocation</strong> for common cases</li>
+<li><strong>Excellent cache locality</strong> due to object clustering</li>
+<li><strong>Reduced fragmentation</strong> through size classes</li>
+<li><strong>Predictable performance</strong> with minimal variance</li>
+</ul>
+<h3 id="disadvantages">
+  Disadvantages:
+  <a class="heading-link" href="#disadvantages">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Memory overhead</strong> for size class management</li>
+<li><strong>Fixed object sizes</strong> limit flexibility</li>
+<li><strong>Complex implementation</strong> for advanced features</li>
+</ul>
+<h2 id="real-world-usage">
+  Real-World Usage
+  <a class="heading-link" href="#real-world-usage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Slab allocators are used in:</p>
+<ul>
+<li><strong>Linux kernel</strong> (kmem_cache)</li>
+<li><strong>Apache HTTP Server</strong> (apr_pool)</li>
+<li><strong>Game engines</strong> for particle systems</li>
+<li><strong>Database systems</strong> for tuple storage</li>
+</ul>
+<h2 id="benchmarking">
+  Benchmarking
+  <a class="heading-link" href="#benchmarking">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Here&rsquo;s a simple benchmark comparing slab allocator vs. system malloc:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;chrono&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">benchmark</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> iterations <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// System allocator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> start <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>high_resolution_clock<span style="color:#f92672">::</span>now();
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">void</span><span style="color:#f92672">*&gt;</span> ptrs;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> iterations; <span style="color:#f92672">++</span>i) {
+</span></span><span style="display:flex;"><span>        ptrs.push_back(<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">new</span>(<span style="color:#ae81ff">64</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> ptr : ptrs) {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span> <span style="color:#66d9ef">delete</span>(ptr);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> end <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>high_resolution_clock<span style="color:#f92672">::</span>now();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> system_time <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>duration_cast<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>microseconds<span style="color:#f92672">&gt;</span>(end <span style="color:#f92672">-</span> start);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Slab allocator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    SlabAllocator slab(<span style="color:#ae81ff">64</span>);
+</span></span><span style="display:flex;"><span>    start <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>high_resolution_clock<span style="color:#f92672">::</span>now();
+</span></span><span style="display:flex;"><span>    ptrs.clear();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> iterations; <span style="color:#f92672">++</span>i) {
+</span></span><span style="display:flex;"><span>        ptrs.push_back(slab.allocate());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> ptr : ptrs) {
+</span></span><span style="display:flex;"><span>        slab.deallocate(ptr);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    end <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>high_resolution_clock<span style="color:#f92672">::</span>now();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> slab_time <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>duration_cast<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>chrono<span style="color:#f92672">::</span>microseconds<span style="color:#f92672">&gt;</span>(end <span style="color:#f92672">-</span> start);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;System allocator: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> system_time.count() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; μs</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Slab allocator: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> slab_time.count() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; μs</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Speedup: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> (<span style="color:#66d9ef">double</span>)system_time.count() <span style="color:#f92672">/</span> slab_time.count() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;x</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Slab allocators are an excellent choice for high-performance systems that allocate many objects of the same size. While they require more upfront design and implementation effort, the performance benefits can be substantial.</p>
+<p>In future posts, we&rsquo;ll explore more advanced allocator designs and optimization techniques.</p>
+<hr>
+<p><em>This is a mock post for demonstration purposes. You can replace this content with your actual blog post.</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="see-also-in-memory-management">
+        See also in memory-management
+        <a class="heading-link" href="#see-also-in-memory-management">
+          <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+          <span class="sr-only">Link to heading</span>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+            <li>
+              <a href="/posts/custom-memory-allocator-implementation/">Implementing Custom Memory Allocator in C&#43;&#43;</a>
+            </li>
+          
+        
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2025
+     memduh 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

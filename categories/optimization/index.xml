@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Optimization on memduh</title>
+    <link>http://localhost:1313/categories/optimization/</link>
+    <description>Recent content in Optimization on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Jan 2025 14:30:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/optimization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bit Manipulation Tricks Every Systems Programmer Should Know</title>
+      <link>http://localhost:1313/posts/bit-manipulation-tricks/</link>
+      <pubDate>Mon, 20 Jan 2025 14:30:00 +0300</pubDate>
+      <guid>http://localhost:1313/posts/bit-manipulation-tricks/</guid>
+      <description>&lt;h1 id=&#34;bit-manipulation-tricks-every-systems-programmer-should-know&#34;&gt;&#xA;  Bit Manipulation Tricks Every Systems Programmer Should Know&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#bit-manipulation-tricks-every-systems-programmer-should-know&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Bit manipulation is the art of working with individual bits in data. While it might seem like a niche skill, it&amp;rsquo;s incredibly powerful for systems programming, performance optimization, and understanding how computers work at the lowest level.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-bit-manipulation-matters&#34;&gt;&#xA;  Why Bit Manipulation Matters&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#why-bit-manipulation-matters&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;In systems programming, every cycle counts. Bit manipulation operations are among the fastest operations a CPU can perform, often taking just a single clock cycle. When you&amp;rsquo;re optimizing performance-critical code, knowing these tricks can make a significant difference.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

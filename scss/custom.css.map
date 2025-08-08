@@ -1,0 +1,13 @@
+{
+	"version": 3,
+	"file": "custom.css",
+	"sourceRoot": "/Users/memduh/Desktop/memduh-blog",
+	"sources": [
+		"assets/scss/custom.scss"
+	],
+	"sourcesContent": [
+		"// Custom avatar styling to ensure perfect circle\n.avatar img {\n  width: 20rem;\n  height: 20rem; // Fixed height to match width\n  border-radius: 50%;\n  object-fit: cover; // Ensures the image covers the entire circle without distortion\n\n  @media only screen and (max-width: 768px) {\n    width: 17rem;\n    height: 17rem; // Fixed height to match width on mobile\n  }\n}\n\n// Make reading time and tags smaller\n.post-meta {\n  .date {\n    .reading-time {\n      font-size: 1.2rem; // Smaller reading time\n    }\n  }\n  \n  .tags {\n    font-size: 1.2rem; // Smaller tags\n    \n    .tag {\n      padding: 0.2rem 0.4rem; // Smaller padding for tags\n      font-size: 1.1rem; // Even smaller tag text\n    }\n  }\n  \n  .categories {\n    font-size: 1.2rem; // Smaller categories\n  }\n}\n\n// Make code blocks smaller\npre {\n  font-size: 1.3rem; // Smaller code font size\n  line-height: 1.4; // Tighter line height\n  padding: 1.2rem; // Smaller padding\n  \n  @media only screen and (max-width: 768px) {\n    font-size: 1.2rem; // Even smaller on mobile\n    padding: 1rem;\n  }\n}\n\ncode {\n  font-size: 1.3rem; // Smaller inline code\n  \n  @media only screen and (max-width: 768px) {\n    font-size: 1.2rem; // Even smaller on mobile\n  }\n}\n\n// Override navigation title to be lowercase\n.navigation-title {\n  text-transform: none !important;\n} "
+	],
+	"names": [],
+	"mappings": "AACA,AAAA,OAAO,CAAC,GAAG,CAAC;EACV,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,GAAG;EAClB,UAAU,EAAE,KAAK,GAMlB;EAJC,MAAM,mCANR;IAAA,AAAA,OAAO,CAAC,GAAG,CAAC;MAOR,KAAK,EAAE,KAAK;MACZ,MAAM,EAAE,KAAK,GAEhB,EAAA;AAGD,AAEI,UAFM,CACR,KAAK,CACH,aAAa,CAAC;EACZ,SAAS,EAAE,MAAM,GAClB;;AAJL,AAOE,UAPQ,CAOR,KAAK,CAAC;EACJ,SAAS,EAAE,MAAM,GAMlB;EAdH,AAUI,UAVM,CAOR,KAAK,CAGH,IAAI,CAAC;IACH,OAAO,EAAE,aAAa;IACtB,SAAS,EAAE,MAAM,GAClB;;AAbL,AAgBE,UAhBQ,CAgBR,WAAW,CAAC;EACV,SAAS,EAAE,MAAM,GAClB;;AAIH,AAAA,GAAG,CAAC;EACF,SAAS,EAAE,MAAM;EACjB,WAAW,EAAE,GAAG;EAChB,OAAO,EAAE,MAAM,GAMhB;EAJC,MAAM,mCALR;IAAA,AAAA,GAAG,CAAC;MAMA,SAAS,EAAE,MAAM;MACjB,OAAO,EAAE,IAAI,GAEhB,EAAA;AAED,AAAA,IAAI,CAAC;EACH,SAAS,EAAE,MAAM,GAKlB;EAHC,MAAM,mCAHR;IAAA,AAAA,IAAI,CAAC;MAID,SAAS,EAAE,MAAM,GAEpB,EAAA;AAGD,AAAA,iBAAiB,CAAC;EAChB,cAAc,EAAE,eAAe,GAChC"
+}

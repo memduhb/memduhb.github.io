@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitcoin on memduh</title>
+    <link>http://localhost:1313/tags/bitcoin/</link>
+    <description>Recent content in Bitcoin on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Jan 2025 10:00:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bitcoin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bitcoin: A Peer-to-Peer Electronic Cash System</title>
+      <link>http://localhost:1313/readings/bitcoin-whitepaper/</link>
+      <pubDate>Thu, 16 Jan 2025 10:00:00 +0300</pubDate>
+      <guid>http://localhost:1313/readings/bitcoin-whitepaper/</guid>
+      <description>&lt;p&gt;The original Bitcoin whitepaper that introduced blockchain technology and proof-of-work consensus.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Author:&lt;/strong&gt; Satoshi Nakamoto&lt;br&gt;&#xA;&lt;strong&gt;Year:&lt;/strong&gt; 2008&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

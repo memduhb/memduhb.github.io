@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Systems-Programming on memduh</title>
+    <link>/categories/systems-programming/</link>
+    <description>Recent content in Systems-Programming on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 25 Jan 2025 09:15:00 +0300</lastBuildDate>
+    <atom:link href="/categories/systems-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementing Custom Slab Allocator with C&#43;&#43;</title>
+      <link>/posts/slab-allocator-implementation/</link>
+      <pubDate>Sat, 25 Jan 2025 09:15:00 +0300</pubDate>
+      <guid>/posts/slab-allocator-implementation/</guid>
+      <description>&lt;h1 id=&#34;implementing-a-slab-allocator-high-performance-memory-management&#34;&gt;&#xA;  implementing a slab allocator: high-performance memory management&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#implementing-a-slab-allocator-high-performance-memory-management&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Slab allocators are one of the most efficient memory allocation strategies for high-frequency allocations of fixed-size objects. Originally developed by Sun Microsystems for the Solaris kernel, slab allocators have found their way into many high-performance systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-slab-allocator&#34;&gt;&#xA;  What is a Slab Allocator?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-a-slab-allocator&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;A slab allocator pre-allocates memory in fixed-size chunks (slabs) and maintains free lists for each size class. When you request memory, it simply pops an object from the appropriate free list - an O(1) operation.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aggregation on memduh</title>
+    <link>/tags/aggregation/</link>
+    <description>Recent content in Aggregation on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 31 Jul 2025 16:00:00 +0300</lastBuildDate>
+    <atom:link href="/tags/aggregation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Short Overview of CoW Protocol</title>
+      <link>/notes/cow-protocol-summary/</link>
+      <pubDate>Thu, 31 Jul 2025 16:00:00 +0300</pubDate>
+      <guid>/notes/cow-protocol-summary/</guid>
+      <description>&lt;h2 id=&#34;what-is-cow-protocol&#34;&gt;&#xA;  What is CoW Protocol?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-cow-protocol&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Meta-DEX aggregation protocol&lt;/strong&gt; that uses trade intents and batch auctions to find users better prices for trading crypto assets.&lt;/p&gt;&#xA;&lt;p&gt;Relies on third parties known as &lt;strong&gt;&amp;ldquo;solvers&amp;rdquo;&lt;/strong&gt; to find the best execution paths for trade intents — signed messages that specify conditions for executing transactions on Ethereum and EVM-compatible chains.&lt;/p&gt;&#xA;&lt;h2 id=&#34;core-architecture&#34;&gt;&#xA;  Core Architecture&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#core-architecture&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;solver-process&#34;&gt;&#xA;  Solver Process&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#solver-process&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Receives user intent&lt;/strong&gt; → Groups intents with others in a batch&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Finds Coincidence of Wants (CoW)&lt;/strong&gt; → To offer optimal price over &lt;strong&gt;ANY&lt;/strong&gt; onchain liquidity&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Executes batch&lt;/strong&gt; → Settles all trades at uniform clearing price&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;liquidity-sources&#34;&gt;&#xA;  Liquidity Sources&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#liquidity-sources&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;AMMs&lt;/strong&gt; (Uniswap, Sushiswap, Balancer, Curve, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DEX Aggregators&lt;/strong&gt; (1inch, Paraswap, Matcha, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Private Market Makers&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Result:&lt;/strong&gt; CoW Swap is an &lt;strong&gt;aggregator of aggregators&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

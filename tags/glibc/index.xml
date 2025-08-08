@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Glibc on memduh</title>
+    <link>http://localhost:51148/tags/glibc/</link>
+    <description>Recent content in Glibc on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 18 Jan 2025 09:00:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:51148/tags/glibc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding glibc malloc</title>
+      <link>http://localhost:51148/readings/glibc-malloc/</link>
+      <pubDate>Sat, 18 Jan 2025 09:00:00 +0300</pubDate>
+      <guid>http://localhost:51148/readings/glibc-malloc/</guid>
+      <description>&lt;p&gt;Deep dive into how glibc&amp;rsquo;s malloc implementation works, including heap management and security considerations.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Author:&lt;/strong&gt; Sploitfun&lt;br&gt;&#xA;&lt;strong&gt;Year:&lt;/strong&gt; 2015&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

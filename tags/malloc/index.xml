@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Malloc on memduh</title>
+    <link>http://localhost:1313/tags/malloc/</link>
+    <description>Recent content in Malloc on memduh</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 30 Jan 2025 10:00:00 +0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/malloc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementing Custom Memory Allocator in C&#43;&#43;</title>
+      <link>http://localhost:1313/posts/custom-memory-allocator-implementation/</link>
+      <pubDate>Thu, 30 Jan 2025 10:00:00 +0300</pubDate>
+      <guid>http://localhost:1313/posts/custom-memory-allocator-implementation/</guid>
+      <description>&lt;p&gt;In this post, I elaborate on my implementation of a memory allocator in C++. The &lt;code&gt;malloc&lt;/code&gt;, &lt;code&gt;calloc&lt;/code&gt;, &lt;code&gt;realloc&lt;/code&gt;, and &lt;code&gt;free&lt;/code&gt; functions are implemented and discussed. The aim is to provide educational content on how these functions work under the hood. Not all aspects are taken into account in this custom implementation; however, this provides a sufficient introduction to memory management in C++. Note that standard allocators like &lt;strong&gt;glibc malloc&lt;/strong&gt; are highly optimized and have been battle-tested for decades.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
