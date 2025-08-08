@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Readings on memduh</title>
-    <link>/readings/</link>
+    <link>//localhost:1313/readings/</link>
     <description>Recent content in Readings on memduh</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Jul 2025 09:00:00 +0300</lastBuildDate>
-    <atom:link href="/readings/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Aug 2025 10:00:00 +0300</lastBuildDate>
+    <atom:link href="//localhost:1313/readings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>state of the machine</title>
+      <link>//localhost:1313/readings/entry-state-machine/</link>
+      <pubDate>Thu, 07 Aug 2025 10:00:00 +0300</pubDate>
+      <guid>//localhost:1313/readings/entry-state-machine/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Author:&lt;/strong&gt; thiccyth0t&lt;br&gt;&#xA;&lt;strong&gt;Year:&lt;/strong&gt; 2025&lt;/p&gt;</description>
+    </item>
     <item>
       <title>ENDGAME: How we use ZK to secure MegaETH</title>
-      <link>/readings/megaeth/</link>
+      <link>//localhost:1313/readings/megaeth/</link>
       <pubDate>Sat, 26 Jul 2025 09:00:00 +0300</pubDate>
-      <guid>/readings/megaeth/</guid>
+      <guid>//localhost:1313/readings/megaeth/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Author:&lt;/strong&gt; Sploitfun&lt;br&gt;&#xA;&lt;strong&gt;Year:&lt;/strong&gt; 2015&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,53 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>memduh</title>
-    <link>/</link>
+    <link>//localhost:1313/</link>
     <description>Recent content on memduh</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 06 Aug 2025 10:00:00 +0300</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Aug 2025 10:00:00 +0300</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>state of the machine</title>
+      <link>//localhost:1313/readings/entry-state-machine/</link>
+      <pubDate>Thu, 07 Aug 2025 10:00:00 +0300</pubDate>
+      <guid>//localhost:1313/readings/entry-state-machine/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Author:&lt;/strong&gt; thiccyth0t&lt;br&gt;&#xA;&lt;strong&gt;Year:&lt;/strong&gt; 2025&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Implementing Custom Memory Allocator in C&#43;&#43;</title>
-      <link>/posts/custom-memory-allocator-implementation/</link>
+      <link>//localhost:1313/posts/custom-memory-allocator-implementation/</link>
       <pubDate>Wed, 06 Aug 2025 10:00:00 +0300</pubDate>
-      <guid>/posts/custom-memory-allocator-implementation/</guid>
+      <guid>//localhost:1313/posts/custom-memory-allocator-implementation/</guid>
       <description>&lt;p&gt;In this post, I elaborate on my implementation of a memory allocator in C++. The &lt;code&gt;malloc&lt;/code&gt;, &lt;code&gt;calloc&lt;/code&gt;, &lt;code&gt;realloc&lt;/code&gt;, and &lt;code&gt;free&lt;/code&gt; functions are implemented and discussed. The aim is to provide educational content on how these functions work under the hood. Not all aspects are taken into account in this custom implementation; however, this provides a sufficient introduction to memory management in C++. Note that standard allocators like &lt;strong&gt;glibc malloc&lt;/strong&gt; are highly optimized and have been battle-tested for decades.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Short Overview of CoW Protocol</title>
-      <link>/notes/cow-protocol-summary/</link>
+      <link>//localhost:1313/notes/cow-protocol-summary/</link>
       <pubDate>Thu, 31 Jul 2025 16:00:00 +0300</pubDate>
-      <guid>/notes/cow-protocol-summary/</guid>
+      <guid>//localhost:1313/notes/cow-protocol-summary/</guid>
       <description>&lt;h2 id=&#34;what-is-cow-protocol&#34;&gt;&#xA;  What is CoW Protocol?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-cow-protocol&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Meta-DEX aggregation protocol&lt;/strong&gt; that uses trade intents and batch auctions to find users better prices for trading crypto assets.&lt;/p&gt;&#xA;&lt;p&gt;Relies on third parties known as &lt;strong&gt;&amp;ldquo;solvers&amp;rdquo;&lt;/strong&gt; to find the best execution paths for trade intents — signed messages that specify conditions for executing transactions on Ethereum and EVM-compatible chains.&lt;/p&gt;&#xA;&lt;h2 id=&#34;core-architecture&#34;&gt;&#xA;  Core Architecture&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#core-architecture&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;solver-process&#34;&gt;&#xA;  Solver Process&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#solver-process&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Receives user intent&lt;/strong&gt; → Groups intents with others in a batch&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Finds Coincidence of Wants (CoW)&lt;/strong&gt; → To offer optimal price over &lt;strong&gt;ANY&lt;/strong&gt; onchain liquidity&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Executes batch&lt;/strong&gt; → Settles all trades at uniform clearing price&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;liquidity-sources&#34;&gt;&#xA;  Liquidity Sources&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#liquidity-sources&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;AMMs&lt;/strong&gt; (Uniswap, Sushiswap, Balancer, Curve, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DEX Aggregators&lt;/strong&gt; (1inch, Paraswap, Matcha, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Private Market Makers&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Result:&lt;/strong&gt; CoW Swap is an &lt;strong&gt;aggregator of aggregators&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ENDGAME: How we use ZK to secure MegaETH</title>
-      <link>/readings/megaeth/</link>
+      <link>//localhost:1313/readings/megaeth/</link>
       <pubDate>Sat, 26 Jul 2025 09:00:00 +0300</pubDate>
-      <guid>/readings/megaeth/</guid>
+      <guid>//localhost:1313/readings/megaeth/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Author:&lt;/strong&gt; Sploitfun&lt;br&gt;&#xA;&lt;strong&gt;Year:&lt;/strong&gt; 2015&lt;/p&gt;</description>
     </item>
     <item>
       <title>Implementing Custom Slab Allocator with C&#43;&#43;</title>
-      <link>/posts/slab-allocator-implementation/</link>
+      <link>//localhost:1313/posts/slab-allocator-implementation/</link>
       <pubDate>Sat, 25 Jan 2025 09:15:00 +0300</pubDate>
-      <guid>/posts/slab-allocator-implementation/</guid>
+      <guid>//localhost:1313/posts/slab-allocator-implementation/</guid>
       <description>&lt;h1 id=&#34;implementing-a-slab-allocator-high-performance-memory-management&#34;&gt;&#xA;  implementing a slab allocator: high-performance memory management&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#implementing-a-slab-allocator-high-performance-memory-management&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Slab allocators are one of the most efficient memory allocation strategies for high-frequency allocations of fixed-size objects. Originally developed by Sun Microsystems for the Solaris kernel, slab allocators have found their way into many high-performance systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-a-slab-allocator&#34;&gt;&#xA;  What is a Slab Allocator?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-is-a-slab-allocator&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;A slab allocator pre-allocates memory in fixed-size chunks (slabs) and maintains free lists for each size class. When you request memory, it simply pops an object from the appropriate free list - an O(1) operation.&lt;/p&gt;</description>
     </item>
     <item>
       <title>about</title>
-      <link>/about/</link>
+      <link>//localhost:1313/about/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0300</pubDate>
-      <guid>/about/</guid>
+      <guid>//localhost:1313/about/</guid>
       <description>&lt;p&gt;Hi, I&amp;rsquo;m &lt;strong&gt;Memduh&lt;/strong&gt;, a systems programmer and low-level developer passionate about computer architecture, FPGA design, and operating systems.&lt;/p&gt;&#xA;&lt;p&gt;Freshly graduated from Middle East Technical University with a B.S. in Electrical and Electronics Engineering. I am interested in computer architecture, FPGA design, systems programming, embedded systems, and high frequency systems. I work with register-level programming, Verilog HDL, C++ and Assembly programming, operating systems, memory management, and embedded development.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href=&#34;https://github.com/memduhb/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@memduhb&lt;/a&gt;&lt;br&gt;&#xA;&lt;strong&gt;Twitter&lt;/strong&gt;: &lt;a href=&#34;https://twitter.com/0xmemduh&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@0xmemduh&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Consensus Protocols</title>
-      <link>/posts/consensus-protocols/</link>
+      <link>//localhost:1313/posts/consensus-protocols/</link>
       <pubDate>Mon, 16 May 2022 11:00:00 +0300</pubDate>
-      <guid>/posts/consensus-protocols/</guid>
-      <description>&lt;h1 id=&#34;consensus-protocols&#34;&gt;&#xA;  Consensus Protocols&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#consensus-protocols&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Consensus protocols are the backbone of distributed systems, enabling multiple nodes to agree on a single state or value despite potential failures and network partitions. From traditional distributed databases to modern blockchain networks, consensus protocols ensure reliability and consistency in decentralized environments.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;/images/angry.png&#34; width=&#34;600&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&amp;ldquo;12 Angry Men&amp;rdquo; film shows 12 jurors deciding the future of an 18-year-old boy accused of murder. For a decision to emerge from the room, &lt;strong&gt;unanimity&lt;/strong&gt; must be achieved.&lt;/em&gt;&lt;/p&gt;</description>
+      <guid>//localhost:1313/posts/consensus-protocols/</guid>
+      <description>&lt;h1 id=&#34;consensus-protocols&#34;&gt;&#xA;  Consensus Protocols&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#consensus-protocols&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Consensus protocols are the backbone of distributed systems, enabling multiple nodes to agree on a single state or value despite potential failures and network partitions. From traditional distributed databases to modern blockchain networks, consensus protocols ensure reliability and consistency in decentralized environments.&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;//localhost:1313/images/angry.png&#34; width=&#34;600&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&amp;ldquo;12 Angry Men&amp;rdquo; film shows 12 jurors deciding the future of an 18-year-old boy accused of murder. For a decision to emerge from the room, &lt;strong&gt;unanimity&lt;/strong&gt; must be achieved.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
