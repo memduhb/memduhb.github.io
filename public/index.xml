@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>memduh</title><link>/</link><description>Recent content on memduh</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 10 Aug 2025 10:00:00 +0300</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>CppCon 2017: Fedor Pikus "C++ atomics, from basic to advanced. What do they really do?"</title><link>/readings/cppcon-2017-atomics/</link><pubDate>Sun, 10 Aug 2025 10:00:00 +0300</pubDate><guid>/readings/cppcon-2017-atomics/</guid><description>&lt;p>&lt;strong>Author:&lt;/strong> Fedor Pikus&lt;br>
+&lt;strong>Year:&lt;/strong> 2017&lt;/p></description></item><item><title>Implementing Custom Thread Pool in C++</title><link>/posts/implementing-custom-thread-pool-cpp/</link><pubDate>Thu, 07 Aug 2025 10:00:00 +0300</pubDate><guid>/posts/implementing-custom-thread-pool-cpp/</guid><description/></item><item><title>state of the machine</title><link>/readings/entry-state-machine/</link><pubDate>Thu, 07 Aug 2025 10:00:00 +0300</pubDate><guid>/readings/entry-state-machine/</guid><description>&lt;p>&lt;strong>Author:&lt;/strong> thiccyth0t&lt;br>
+&lt;strong>Year:&lt;/strong> 2025&lt;/p></description></item><item><title>Implementing Custom Memory Allocator in C++</title><link>/posts/custom-memory-allocator-implementation/</link><pubDate>Wed, 06 Aug 2025 10:00:00 +0300</pubDate><guid>/posts/custom-memory-allocator-implementation/</guid><description>&lt;p>In this post, I elaborate on my implementation of a memory allocator in C++. The &lt;code>malloc&lt;/code>, &lt;code>calloc&lt;/code>, &lt;code>realloc&lt;/code>, and &lt;code>free&lt;/code> functions are implemented and discussed. The aim is to provide educational content on how these functions work under the hood. Not all aspects are taken into account in this custom implementation; however, this provides a sufficient introduction to memory management in C++. Note that standard allocators like &lt;strong>glibc malloc&lt;/strong> are highly optimized and have been battle-tested for decades.&lt;/p></description></item><item><title>A Short Overview of CoW Protocol</title><link>/notes/cow-protocol-summary/</link><pubDate>Thu, 31 Jul 2025 16:00:00 +0300</pubDate><guid>/notes/cow-protocol-summary/</guid><description>&lt;h2 id="what-is-cow-protocol">
+ What is CoW Protocol?
+ &lt;a class="heading-link" href="#what-is-cow-protocol">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Meta-DEX aggregation protocol&lt;/strong> that uses trade intents and batch auctions to find users better prices for trading crypto assets.&lt;/p>
+&lt;p>Relies on third parties known as &lt;strong>&amp;ldquo;solvers&amp;rdquo;&lt;/strong> to find the best execution paths for trade intents — signed messages that specify conditions for executing transactions on Ethereum and EVM-compatible chains.&lt;/p>
+&lt;h2 id="core-architecture">
+ Core Architecture
+ &lt;a class="heading-link" href="#core-architecture">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="solver-process">
+ Solver Process
+ &lt;a class="heading-link" href="#solver-process">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>Receives user intent&lt;/strong> → Groups intents with others in a batch&lt;/li>
+&lt;li>&lt;strong>Finds Coincidence of Wants (CoW)&lt;/strong> → To offer optimal price over &lt;strong>ANY&lt;/strong> onchain liquidity&lt;/li>
+&lt;li>&lt;strong>Executes batch&lt;/strong> → Settles all trades at uniform clearing price&lt;/li>
+&lt;/ol>
+&lt;h3 id="liquidity-sources">
+ Liquidity Sources
+ &lt;a class="heading-link" href="#liquidity-sources">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>AMMs&lt;/strong> (Uniswap, Sushiswap, Balancer, Curve, etc.)&lt;/li>
+&lt;li>&lt;strong>DEX Aggregators&lt;/strong> (1inch, Paraswap, Matcha, etc.)&lt;/li>
+&lt;li>&lt;strong>Private Market Makers&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Result:&lt;/strong> CoW Swap is an &lt;strong>aggregator of aggregators&lt;/strong>.&lt;/p></description></item><item><title>ENDGAME: How we use ZK to secure MegaETH</title><link>/readings/megaeth/</link><pubDate>Sat, 26 Jul 2025 09:00:00 +0300</pubDate><guid>/readings/megaeth/</guid><description>&lt;p>&lt;strong>Author:&lt;/strong> Sploitfun&lt;br>
+&lt;strong>Year:&lt;/strong> 2015&lt;/p></description></item><item><title>Nearly Optimal State Merklization</title><link>/readings/nearly-optimal-state-merklization/</link><pubDate>Sun, 20 Jul 2025 10:00:00 +0300</pubDate><guid>/readings/nearly-optimal-state-merklization/</guid><description>&lt;p>&lt;strong>Author:&lt;/strong> Sovereign&lt;br>
+&lt;strong>Year:&lt;/strong> 2025&lt;/p></description></item><item><title>Implementing Custom Slab Allocator with C++</title><link>/posts/slab-allocator-implementation/</link><pubDate>Sat, 25 Jan 2025 09:15:00 +0300</pubDate><guid>/posts/slab-allocator-implementation/</guid><description>&lt;p>nothing to see here&lt;/p></description></item><item><title>about</title><link>/about/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0300</pubDate><guid>/about/</guid><description>&lt;p>Hi, I&amp;rsquo;m &lt;strong>Memduh&lt;/strong>, a systems programmer and low-level developer passionate about computer architecture, FPGA design, and operating systems.&lt;/p>
+&lt;p>Freshly graduated from Middle East Technical University with a B.S. in Electrical and Electronics Engineering. I am interested in computer architecture, FPGA design, systems programming, embedded systems, and high frequency systems. I work with register-level programming, Verilog HDL, C++ and Assembly programming, operating systems, memory management, and embedded development.&lt;/p>
+&lt;p>&lt;strong>GitHub&lt;/strong>: &lt;a href="https://github.com/memduhb/" class="external-link" target="_blank" rel="noopener">@memduhb&lt;/a>&lt;br>
+&lt;strong>Twitter&lt;/strong>: &lt;a href="https://twitter.com/0xmemduh" class="external-link" target="_blank" rel="noopener">@0xmemduh&lt;/a>&lt;/p></description></item><item><title>Consensus Protocols</title><link>/posts/consensus-protocols/</link><pubDate>Mon, 16 May 2022 11:00:00 +0300</pubDate><guid>/posts/consensus-protocols/</guid><description>&lt;h1 id="consensus-protocols">
+ Consensus Protocols
+ &lt;a class="heading-link" href="#consensus-protocols">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>Consensus protocols are the backbone of distributed systems, enabling multiple nodes to agree on a single state or value despite potential failures and network partitions. From traditional distributed databases to modern blockchain networks, consensus protocols ensure reliability and consistency in decentralized environments.&lt;/p>
+&lt;figure>&lt;img src="/images/angry.png" width="600">
+&lt;/figure>
+
+&lt;blockquote>
+&lt;p>&lt;em>&amp;ldquo;12 Angry Men&amp;rdquo; film shows 12 jurors deciding the future of an 18-year-old boy accused of murder. For a decision to emerge from the room, &lt;strong>unanimity&lt;/strong> must be achieved.&lt;/em>&lt;/p></description></item></channel></rss>

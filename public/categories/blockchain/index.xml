@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blockchain on memduh</title><link>/categories/blockchain/</link><description>Recent content in Blockchain on memduh</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 31 Jul 2025 16:00:00 +0300</lastBuildDate><atom:link href="/categories/blockchain/index.xml" rel="self" type="application/rss+xml"/><item><title>A Short Overview of CoW Protocol</title><link>/notes/cow-protocol-summary/</link><pubDate>Thu, 31 Jul 2025 16:00:00 +0300</pubDate><guid>/notes/cow-protocol-summary/</guid><description>&lt;h2 id="what-is-cow-protocol">
+ What is CoW Protocol?
+ &lt;a class="heading-link" href="#what-is-cow-protocol">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>Meta-DEX aggregation protocol&lt;/strong> that uses trade intents and batch auctions to find users better prices for trading crypto assets.&lt;/p>
+&lt;p>Relies on third parties known as &lt;strong>&amp;ldquo;solvers&amp;rdquo;&lt;/strong> to find the best execution paths for trade intents — signed messages that specify conditions for executing transactions on Ethereum and EVM-compatible chains.&lt;/p>
+&lt;h2 id="core-architecture">
+ Core Architecture
+ &lt;a class="heading-link" href="#core-architecture">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="solver-process">
+ Solver Process
+ &lt;a class="heading-link" href="#solver-process">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>Receives user intent&lt;/strong> → Groups intents with others in a batch&lt;/li>
+&lt;li>&lt;strong>Finds Coincidence of Wants (CoW)&lt;/strong> → To offer optimal price over &lt;strong>ANY&lt;/strong> onchain liquidity&lt;/li>
+&lt;li>&lt;strong>Executes batch&lt;/strong> → Settles all trades at uniform clearing price&lt;/li>
+&lt;/ol>
+&lt;h3 id="liquidity-sources">
+ Liquidity Sources
+ &lt;a class="heading-link" href="#liquidity-sources">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>AMMs&lt;/strong> (Uniswap, Sushiswap, Balancer, Curve, etc.)&lt;/li>
+&lt;li>&lt;strong>DEX Aggregators&lt;/strong> (1inch, Paraswap, Matcha, etc.)&lt;/li>
+&lt;li>&lt;strong>Private Market Makers&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Result:&lt;/strong> CoW Swap is an &lt;strong>aggregator of aggregators&lt;/strong>.&lt;/p></description></item></channel></rss>

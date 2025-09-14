@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Distributed-Systems on memduh</title><link>/categories/distributed-systems/</link><description>Recent content in Distributed-Systems on memduh</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 16 May 2022 11:00:00 +0300</lastBuildDate><atom:link href="/categories/distributed-systems/index.xml" rel="self" type="application/rss+xml"/><item><title>Consensus Protocols</title><link>/posts/consensus-protocols/</link><pubDate>Mon, 16 May 2022 11:00:00 +0300</pubDate><guid>/posts/consensus-protocols/</guid><description>&lt;h1 id="consensus-protocols">
+ Consensus Protocols
+ &lt;a class="heading-link" href="#consensus-protocols">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>Consensus protocols are the backbone of distributed systems, enabling multiple nodes to agree on a single state or value despite potential failures and network partitions. From traditional distributed databases to modern blockchain networks, consensus protocols ensure reliability and consistency in decentralized environments.&lt;/p>
+&lt;figure>&lt;img src="/images/angry.png" width="600">
+&lt;/figure>
+
+&lt;blockquote>
+&lt;p>&lt;em>&amp;ldquo;12 Angry Men&amp;rdquo; film shows 12 jurors deciding the future of an 18-year-old boy accused of murder. For a decision to emerge from the room, &lt;strong>unanimity&lt;/strong> must be achieved.&lt;/em>&lt;/p></description></item></channel></rss>
