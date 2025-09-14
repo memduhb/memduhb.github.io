@@ -1,0 +1,68 @@
+baseURL = "/"
+title = "memduh"
+theme = "hugo-coder"
+languageCode = "en"
+defaultContentLanguage = "en"
+
+[pagination]
+pagerSize = 20
+
+[services]
+  [services.disqus]
+  shortname = ""
+
+[markup]
+  [markup.highlight]
+    style = "monokai" # Or try "github-dark", "dracula", etc.
+
+[params]
+  author = "memduh"
+  info = "computers | electronics"
+  description = "memduh-blog: Memory allocators, performance, bit magic."
+  keywords = "C++, memory, allocators, mmap, slab, performance"
+  avatarURL = "images/avatar.png" # Standard Hugo location: static/images/
+  since = 2025
+  enableTwemoji = true
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
+  
+  # Custom styles
+  customSCSS = ["scss/custom.scss"]
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa-brands fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/memduhb/"
+
+[[params.social]]
+  name = "Twitter"
+  icon = "fa-brands fa-twitter fa-2x"
+  weight = 2
+  url = "https://twitter.com/0xmemduh"
+
+# Menu links
+[[menu.main]]
+  name = "posts"
+  weight = 1
+  url  = "posts/"
+
+[[menu.main]]
+  name = "notes"
+  weight = 2
+  url = "notes/"
+
+[[menu.main]]
+  name = "readings"
+  weight = 3
+  url = "readings/"
+
+[[menu.main]]
+  name = "about"
+  weight = 4
+  url = "about/"

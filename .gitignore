@@ -1,0 +1,17 @@
+public/
+resources/
+.hugo_build.lock
+.DS_Store
+**/.DS_Store
+*.log
+
+# Hugo generated files
+categories/
+tags/
+series/
+authors/
+index.xml
+sitemap.xml
+notes/
+posts/
+readings/

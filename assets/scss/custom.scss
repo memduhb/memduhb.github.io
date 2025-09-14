@@ -1,0 +1,59 @@
+// Custom avatar styling to ensure perfect circle
+.avatar img {
+  width: 20rem;
+  height: 20rem; // Fixed height to match width
+  border-radius: 50%;
+  object-fit: cover; // Ensures the image covers the entire circle without distortion
+
+  @media only screen and (max-width: 768px) {
+    width: 17rem;
+    height: 17rem; // Fixed height to match width on mobile
+  }
+}
+
+// Make reading time and tags smaller
+.post-meta {
+  .date {
+    .reading-time {
+      font-size: 1.2rem; // Smaller reading time
+    }
+  }
+  
+  .tags {
+    font-size: 1.2rem; // Smaller tags
+    
+    .tag {
+      padding: 0.2rem 0.4rem; // Smaller padding for tags
+      font-size: 1.1rem; // Even smaller tag text
+    }
+  }
+  
+  .categories {
+    font-size: 1.2rem; // Smaller categories
+  }
+}
+
+// Make code blocks smaller
+pre {
+  font-size: 1.3rem; // Smaller code font size
+  line-height: 1.4; // Tighter line height
+  padding: 1.2rem; // Smaller padding
+  
+  @media only screen and (max-width: 768px) {
+    font-size: 1.2rem; // Even smaller on mobile
+    padding: 1rem;
+  }
+}
+
+code {
+  font-size: 1.3rem; // Smaller inline code
+  
+  @media only screen and (max-width: 768px) {
+    font-size: 1.2rem; // Even smaller on mobile
+  }
+}
+
+// Override navigation title to be lowercase
+.navigation-title {
+  text-transform: none !important;
+} 
